@@ -18,3 +18,8 @@ output "pets" {
 output "ids" {
   value = [for pet in random_pet.example: pet.id]
 }
+
+output "password" {
+  value     = join("-", [for pet in random_pet.example: pet.id])
+  sensitive = true
+}
